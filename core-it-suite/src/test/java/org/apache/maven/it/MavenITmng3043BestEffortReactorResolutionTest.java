@@ -159,6 +159,8 @@ public class MavenITmng3043BestEffortReactorResolutionTest extends AbstractMaven
      */
     @Test
     public void testitPackagePhasesSlitted() throws Exception {
+        requiresMavenVersion("[4.0.0-alpha-4,)");
+
         File testDir = ResourceExtractor.simpleExtractResources(getClass(), "/mng-3043");
 
         Verifier verifier = newVerifier(testDir.getAbsolutePath());
@@ -180,7 +182,7 @@ public class MavenITmng3043BestEffortReactorResolutionTest extends AbstractMaven
         verifier.execute();
         verifier.verifyErrorFreeLog();
 
-        String prefix = matchesVersionRange("[4.0.0-alpha-4,)") ? "dependency-0.1-SNAPSHOT-" : "";
+        String prefix = "dependency-0.1-SNAPSHOT-";
 
         List<String> classpath;
 
