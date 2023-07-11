@@ -169,7 +169,7 @@ public class MavenITmng3043BestEffortReactorResolutionTest extends AbstractMaven
         verifier.deleteDirectory("consumer-c/target");
         verifier.deleteArtifacts("org.apache.maven.its.mng3043");
         verifier.setLogFileName("log-package-pre.txt");
-        verifier.addCliArguments("--projects", ":parent,:dependency", "-N", "package");
+        verifier.addCliArguments("--also-make", "--projects", ":dependency", "package");
         verifier.execute();
         verifier.verifyErrorFreeLog();
 
